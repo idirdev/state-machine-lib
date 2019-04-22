@@ -1,0 +1,20 @@
+{
+  "name": "state-machine-lib",
+  "version": "1.0.0",
+  "description": "A finite state machine library for TypeScript with guards, actions, and visualization",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "example:traffic": "tsc && node dist/examples/trafficLight.js",
+    "example:auth": "tsc && node dist/examples/auth.js"
+  },
+  "keywords": ["state-machine", "fsm", "finite-state-machine", "typescript", "statechart"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.5.4",
+    "@types/node": "^16.11.12"
+  }
+}

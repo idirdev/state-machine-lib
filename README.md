@@ -249,3 +249,7 @@ state-machine-lib/
 ## License
 
 MIT
+
+## Testing
+
+Run `npm test` to execute the test suite.

@@ -8,13 +8,15 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "example:traffic": "tsc && node dist/examples/trafficLight.js",
-    "example:auth": "tsc && node dist/examples/auth.js"
+    "example:auth": "tsc && node dist/examples/auth.js",
+    "test": "vitest run"
   },
   "keywords": ["state-machine", "fsm", "finite-state-machine", "typescript", "statechart"],
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^4.5.4",
-    "@types/node": "^16.11.12"
+    "typescript": "^5.5.4",
+    "@types/node": "^20.14.0",
+    "vitest": "^2.0.0"
   }
 }

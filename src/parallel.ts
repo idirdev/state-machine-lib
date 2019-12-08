@@ -1,23 +1,21 @@
-import { Machine } from './Machine';
-import type { StateConfig, MachineConfig } from './types';
-
-interface ParallelState {
-  regions: Map<string, Machine>;
-}
+import { StateMachine } from './Machine';
+import type { MachineConfig } from './types';
 
 export class ParallelMachine {
-  private regions: Map<string, Machine> = new Map();
+  private regions: Map<string, StateMachine> = new Map();
+  private configs: Record<string, MachineConfig>;
 
   constructor(config: Record<string, MachineConfig>) {
+    this.configs = config;
     for (const [name, regionConfig] of Object.entries(config)) {
-      this.regions.set(name, new Machine(regionConfig));
+      this.regions.set(name, new StateMachine(regionConfig));
     }
   }
 
   get state(): Record<string, string> {
     const result: Record<string, string> = {};
     for (const [name, machine] of this.regions) {
-      result[name] = machine.current;
+      result[name] = machine.state;
     }
     return result;
   }
@@ -33,7 +31,7 @@ export class ParallelMachine {
     }
   }
 
-  getRegion(name: string): Machine | undefined {
+  getRegion(name: string): StateMachine | undefined {
     return this.regions.get(name);
   }
 
@@ -43,14 +41,14 @@ export class ParallelMachine {
 
   get done(): boolean {
     for (const machine of this.regions.values()) {
-      if (!machine.done) return false;
+      if (!machine.getSnapshot().done) return false;
     }
     return true;
   }
 
   reset() {
-    for (const machine of this.regions.values()) {
-      machine.reset();
+    for (const [name, config] of Object.entries(this.configs)) {
+      this.regions.set(name, new StateMachine(config));
     }
   }
 }

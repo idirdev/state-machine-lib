@@ -4,6 +4,7 @@ import { ParallelMachine } from '../src/parallel';
 describe('ParallelMachine', () => {
   const config = {
     display: {
+      id: 'display',
       initial: 'visible',
       states: {
         visible: { on: { HIDE: 'hidden' } },
@@ -11,6 +12,7 @@ describe('ParallelMachine', () => {
       },
     },
     input: {
+      id: 'input',
       initial: 'enabled',
       states: {
         enabled: { on: { DISABLE: 'disabled' } },

@@ -5,6 +5,10 @@ export { assign, log, send, raise, pure, choose } from './actions';
 export { generateMermaid, generateAscii, generateDot } from './visualizer';
 export { toArray, flatten, mapValues, isFunction, uniqueId } from './utils';
 
+export { ParallelMachine } from './parallel';
+export { StateHistory } from './history';
+export { serialize, deserialize, createStorage } from './persistence';
+
 export type {
   State,
   Event,
@@ -16,4 +20,6 @@ export type {
   StateNode,
   TransitionConfig,
   Listener,
+  StateSnapshot,
+  InterpreterOptions,
 } from './types';

@@ -253,3 +253,24 @@ MIT
 ## Testing
 
 Run `npm test` to execute the test suite.
+
+---
+
+## 🇫🇷 Documentation en français
+
+### Description
+state-machine-lib est une bibliothèque de machines à états finis pour TypeScript, sans dépendances externes. Elle offre un typage fort, des guards, des actions et une visualisation de diagrammes intégrée. Parfaite pour modéliser des workflows complexes de manière claire et maintenable.
+
+### Installation
+```bash
+npm install
+```
+
+### Utilisation
+```typescript
+import { createMachine } from 'state-machine-lib';
+
+const machine = createMachine({ /* votre config */ });
+machine.send('EVENT');
+```
+Consultez la documentation en anglais ci-dessus pour les exemples complets et l'API détaillée.
